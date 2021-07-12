@@ -9,7 +9,11 @@ module.exports = function () {
     };
 
     mongoose.set("useCreateIndex", true);
+    // mongoose
+    //     .connect(process.env.CONNECTION_STRING, options)
+    //     .then(() => console.log("Connected to db..."));
+
     mongoose
-        .connect(process.env.CONNECTION_STRING, options)
+        .connect("mongodb://127.0.0.1:27017", options)
         .then(() => console.log("Connected to db..."));
 };
