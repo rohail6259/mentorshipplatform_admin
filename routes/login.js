@@ -12,7 +12,10 @@ router.post("/", async (req, res) => {
 
     bcrypt.compare(req.body.password, user.password, (err, _res) => {
         if (!_res || err) {
-            res.status(400).send("email or Password do not match!");
+            res.status(400).send({
+                code: 400,
+                message: "email or Password do not match!",
+            });
         } else {
             const accessToken = jwt.sign(
                 {
@@ -25,10 +28,12 @@ router.post("/", async (req, res) => {
                 process.env.JWT_PRIVATE_KEY
             );
             res.header("x-auth-token", accessToken).send({
+                _id: user._id,
                 isAuthValid: true,
                 email: user.email,
                 firstName: user.firstName,
                 lastName: user.lastName,
+                intro: user.intro,
             });
         }
     });
