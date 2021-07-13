@@ -14,6 +14,6 @@ module.exports = function () {
     //     .then(() => console.log("Connected to db..."));
 
     mongoose
-        .connect("mongodb://127.0.0.1:27017", options)
+        .connect("mongodb://localhost/mentorplatform", options)
         .then(() => console.log("Connected to db..."));
 };

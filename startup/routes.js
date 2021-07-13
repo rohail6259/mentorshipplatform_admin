@@ -1,5 +1,6 @@
 const express = require("express");
-const userRouter = require("../routes/users");
+const homeRouter = require("../routes/home");
+const signupRouter = require("../routes/signup");
 const loginRouter = require("../routes/login");
 const error = require("../middleware/error");
 const cors = require("cors");
@@ -11,7 +12,8 @@ const corsOptions = {
 module.exports = function (app) {
     app.use(cors(corsOptions));
     app.use(express.json());
-    app.use("/api/users", userRouter);
+    app.use("/api/home", homeRouter);
+    app.use("/api/signup", signupRouter);
     app.use("/api/login", loginRouter);
     app.use(error);
 };
