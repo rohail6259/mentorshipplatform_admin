@@ -2,12 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { User } = require("../model/users");
 
-router.get("/", async (req, res) => {
-    const result = await User.find();
-    console.log(result);
-    res.send(result[0]);
-});
-
 router.put("/:id", async (req, res) => {
     const user = await User.findByIdAndUpdate(
         { _id: req.params.id },

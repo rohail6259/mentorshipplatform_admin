@@ -3,6 +3,7 @@ const homeRouter = require("../routes/home");
 const signupRouter = require("../routes/signup");
 const loginRouter = require("../routes/login");
 const userRouter = require("../routes/user");
+const mentorsRouter = require("../routes/mentors");
 const error = require("../middleware/error");
 const cors = require("cors");
 
@@ -17,5 +18,6 @@ module.exports = function (app) {
     app.use("/api/signup", signupRouter);
     app.use("/api/login", loginRouter);
     app.use("/api/user", userRouter);
+    app.use("/api/mentors", mentorsRouter);
     app.use(error);
 };
