@@ -22,8 +22,6 @@ router.post("/", async (req, res) => {
                     _id: user._id,
                     isAuthValid: true,
                     email: user.email,
-                    firstName: user.firstName,
-                    lastName: user.lastName,
                 },
                 process.env.JWT_PRIVATE_KEY
             );
@@ -31,9 +29,6 @@ router.post("/", async (req, res) => {
                 _id: user._id,
                 isAuthValid: true,
                 email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                intro: user.intro,
             });
         }
     });
