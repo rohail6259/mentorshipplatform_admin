@@ -1,5 +1,4 @@
 const express = require("express");
-require("dotenv").config();
 const { User } = require("../model/users");
 const _ = require("lodash");
 const bcrypt = require("bcryptjs");
