@@ -21,7 +21,7 @@ module.exports = function (app) {
     app.use("/api/login", loginRouter);
     app.use("/api/user", userRouter);
     app.use("/api/mentors", mentorsRouter);
-    app.use("/api/meetings", meetingRouter);
+    app.use("/api/meeting", meetingRouter);
     app.use("/api/appointment", appointmentsRouter);
     app.use(error);
 };

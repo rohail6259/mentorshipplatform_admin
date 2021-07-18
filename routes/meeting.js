@@ -12,22 +12,21 @@ chime.endpoint = new AWS.Endpoint(process.env.CHIME_API_URL);
 
 router.get("/", async (req, res) => {
     try {
-        const response = {};
-        response.meetingResponse = await chime
+        const { Meeting } = await chime
             .createMeeting({
                 ClientRequestToken: uuid(),
                 MediaRegion: region,
             })
             .promise();
 
-        response.attendee = await chime
+        const { Attendee } = await chime
             .createAttendee({
-                MeetingId: response.meetingResponse.Meeting.MeetingId,
+                MeetingId: Meeting.MeetingId,
                 ExternalUserId: uuid(),
             })
             .promise();
 
-        res.send(response);
+        res.send({ status: 1, Meeting, Attendee });
     } catch (err) {
         res.send(err);
     }
